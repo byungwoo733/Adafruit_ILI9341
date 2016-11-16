@@ -33,7 +33,7 @@
 typedef volatile uint32 RwReg;
 #endif
 
-#if defined (__AVR__) || defined(TEENSYDUINO) || defined (__arm__)
+#if defined (__AVR__) || defined(TEENSYDUINO) || defined (__arm__) || defined (FREEDOM_E300)
 #define USE_FAST_PINIO
 #endif
 
@@ -176,6 +176,10 @@ class Adafruit_ILI9341 : public Adafruit_GFX {
     uint32_t  mosipinmask, clkpinmask, cspinmask, dcpinmask;
 #elif defined (ESP8266) || defined (ESP32)
     int32_t  _cs, _dc, _rst, _mosi, _miso, _sclk;
+#elif defined (FREEDOM_E300)
+    volatile uint32_t *mosiport, *clkport, *dcport, *rsport, *csport;
+    int32_t  _cs, _dc, _rst, _mosi, _miso, _sclk;
+    uint32_t  mosipinmask, clkpinmask, cspinmask, dcpinmask;
 #else
     int8_t  _cs, _dc, _rst, _mosi, _miso, _sclk;
 #endif

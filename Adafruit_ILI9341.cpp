@@ -645,7 +645,7 @@ uint8_t Adafruit_ILI9341::spiread(void) {
 	r |= 0x1;
     }
   }
-  //Serial.print("read: 0x"); Serial.print(r, HEX);
+  //  Serial.print("read: 0x"); Serial.print(r, HEX);
   
   return r;
 }
